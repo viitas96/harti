@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Orase</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container py-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/cities">Acasa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cities/add">Adauga</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Lista de orașe: </h1>
+        <a href="/cities/add" class="btn btn-info">Adaugă un oraș</a>
+        <div th:each="element: ${allCities}" class="alert alert-secondary mt-2">
+            <h3 th:text="${element.name}"/>
+            <p th:text="${#dates.format(element.visitedDate, 'dd:MM:yyyy')}"/>
+            <a th:href="'/city/'+ ${element.id} + '/edit'" class="btn btn-success mb-2">Adaugă o dată</a>
+            <form action="/city/delete" method="post">
+                <input type="hidden" th:value="${element.id}" name="id">
+                <button class="btn btn-danger" type="submit">Șterge orașul</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Adaugă un oraș</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container py-3">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/cities">Acasa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cities/add">Adauga</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-5 mb-5">
+    <h1>Adaugă un oraș</h1>
+    <hr>
+    <form action="/city/add" method="post">
+      <input type="text" name="name" placeholder="Insert title" class="form-control"><br>
+      <input type="date" name="visitedDate" placeholder="Insert category" class="form-control"><br>
+      <hr>
+      <button type="submit" class="btn btn-danger">Adaugă</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
